@@ -1,4 +1,4 @@
-program migrate;
+program Migrate;
 
 {$APPTYPE CONSOLE}
 

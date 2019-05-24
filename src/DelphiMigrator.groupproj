@@ -3,7 +3,7 @@
         <ProjectGuid>{36FFA121-FF15-47A7-A035-EA43D9A4F26D}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Application\migrate.dproj">
+        <Projects Include="Application\Migrate.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,23 +14,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="migrate">
-        <MSBuild Projects="Application\migrate.dproj"/>
+    <Target Name="Migrate">
+        <MSBuild Projects="Application\Migrate.dproj"/>
     </Target>
-    <Target Name="migrate:Clean">
-        <MSBuild Projects="Application\migrate.dproj" Targets="Clean"/>
+    <Target Name="Migrate:Clean">
+        <MSBuild Projects="Application\Migrate.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="migrate:Make">
-        <MSBuild Projects="Application\migrate.dproj" Targets="Make"/>
+    <Target Name="Migrate:Make">
+        <MSBuild Projects="Application\Migrate.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="migrate"/>
+        <CallTarget Targets="Migrate"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="migrate:Clean"/>
+        <CallTarget Targets="Migrate:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="migrate:Make"/>
+        <CallTarget Targets="Migrate:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
