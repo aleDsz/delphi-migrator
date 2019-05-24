@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{36FFA121-FF15-47A7-A035-EA43D9A4F26D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Application\migrate.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="migrate">
+        <MSBuild Projects="Application\migrate.dproj"/>
+    </Target>
+    <Target Name="migrate:Clean">
+        <MSBuild Projects="Application\migrate.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="migrate:Make">
+        <MSBuild Projects="Application\migrate.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="migrate"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="migrate:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="migrate:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
